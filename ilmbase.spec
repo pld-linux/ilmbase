@@ -49,6 +49,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek IlmBase
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
+Conflicts:	OpenEXR-devel < 1.5.0
 
 %description devel
 Header files for IlmBase libraries.
@@ -61,6 +62,7 @@ Summary:	Static IlmBase libraries
 Summary(pl.UTF-8):	Statyczne biblioteki IlmBase
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Conflicts:	OpenEXR-static < 1.5.0
 
 %description static
 Static IlmBase libraries.
