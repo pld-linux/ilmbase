@@ -9,6 +9,7 @@ Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}
 # Source0-md5:	26c133ee8ca48e1196fbfb3ffe292ab4
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
+Patch2:		%{name}-gcc4.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
@@ -75,6 +76,7 @@ Statyczne biblioteki IlmBase.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}

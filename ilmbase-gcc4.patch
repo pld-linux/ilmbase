@@ -1,0 +1,10 @@
+--- ilmbase-1.0.2/Imath/ImathMatrix.h.orig	2010-07-17 00:48:40.000000000 +0200
++++ ilmbase-1.0.2/Imath/ImathMatrix.h	2010-10-12 21:52:33.083743558 +0200
+@@ -49,6 +49,7 @@
+ #include "ImathVec.h"
+ #include "ImathShear.h"
+ 
++#include <cstring>
+ #include <iostream>
+ #include <iomanip>
+ 
