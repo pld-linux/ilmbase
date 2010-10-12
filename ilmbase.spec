@@ -1,13 +1,14 @@
 Summary:	IlmBase - base math and exception libraries from OpenEXR project
 Summary(pl.UTF-8):	IlmBase - podstawowe biblioteki matematyczne i wyjątków z projektu OpenEXR
 Name:		ilmbase
-Version:	1.0.1
-Release:	2
+Version:	1.0.2
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	f76f094e69a6079b0beb93d97e2a217e
+# Source0-md5:	26c133ee8ca48e1196fbfb3ffe292ab4
 Patch0:		%{name}-link.patch
+Patch1:		%{name}-sh.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
@@ -73,11 +74,13 @@ Statyczne biblioteki IlmBase.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
+# no autoheader - missing templates
 %{__automake}
 %configure
 
