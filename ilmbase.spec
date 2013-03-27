@@ -1,20 +1,20 @@
 Summary:	IlmBase - base math and exception libraries from OpenEXR project
 Summary(pl.UTF-8):	IlmBase - podstawowe biblioteki matematyczne i wyjątków z projektu OpenEXR
 Name:		ilmbase
-Version:	1.0.2
+Version:	2.0.0
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	26c133ee8ca48e1196fbfb3ffe292ab4
+# Source0-md5:	70f1413840c2a228783d1332b8b168e6
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
-Patch2:		%{name}-gcc4.patch
+Patch2:		%{name}-am.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -104,22 +104,26 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libHalf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libHalf.so.6
-%attr(755,root,root) %{_libdir}/libIex.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libIex.so.6
-%attr(755,root,root) %{_libdir}/libIlmThread.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libIlmThread.so.6
-%attr(755,root,root) %{_libdir}/libImath.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libImath.so.6
+%attr(755,root,root) %ghost %{_libdir}/libHalf.so.10
+%attr(755,root,root) %{_libdir}/libIex-2_0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIex-2_0.so.10
+%attr(755,root,root) %{_libdir}/libIexMath-2_0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIexMath-2_0.so.10
+%attr(755,root,root) %{_libdir}/libIlmThread-2_0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIlmThread-2_0.so.10
+%attr(755,root,root) %{_libdir}/libImath-2_0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libImath-2_0.so.10
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libHalf.so
 %attr(755,root,root) %{_libdir}/libIex.so
+%attr(755,root,root) %{_libdir}/libIexMath.so
 %attr(755,root,root) %{_libdir}/libIlmThread.so
 %attr(755,root,root) %{_libdir}/libImath.so
 %{_libdir}/libHalf.la
 %{_libdir}/libIex.la
+%{_libdir}/libIexMath.la
 %{_libdir}/libIlmThread.la
 %{_libdir}/libImath.la
 %dir %{_includedir}/OpenEXR
@@ -134,5 +138,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libHalf.a
 %{_libdir}/libIex.a
+%{_libdir}/libIexMath.a
 %{_libdir}/libIlmThread.a
 %{_libdir}/libImath.a
