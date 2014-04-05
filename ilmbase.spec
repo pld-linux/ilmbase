@@ -1,12 +1,12 @@
 Summary:	IlmBase - base math and exception libraries from OpenEXR project
 Summary(pl.UTF-8):	IlmBase - podstawowe biblioteki matematyczne i wyjątków z projektu OpenEXR
 Name:		ilmbase
-Version:	2.0.1
+Version:	2.1.0
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	74c0d0d2873960bd0dc1993f8e03f0ae
+Source0:	http://download.savannah.gnu.org/releases/openexr/%{name}-%{version}.tar.gz
+# Source0-md5:	8ba2f608191ad020e50277d8a3ba0850
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
 Patch2:		%{name}-am.patch
@@ -104,15 +104,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libHalf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libHalf.so.10
-%attr(755,root,root) %{_libdir}/libIex-2_0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libIex-2_0.so.10
-%attr(755,root,root) %{_libdir}/libIexMath-2_0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libIexMath-2_0.so.10
-%attr(755,root,root) %{_libdir}/libIlmThread-2_0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libIlmThread-2_0.so.10
-%attr(755,root,root) %{_libdir}/libImath-2_0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libImath-2_0.so.10
+%attr(755,root,root) %ghost %{_libdir}/libHalf.so.11
+%attr(755,root,root) %{_libdir}/libIex-2_1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIex-2_1.so.11
+%attr(755,root,root) %{_libdir}/libIexMath-2_1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIexMath-2_1.so.11
+%attr(755,root,root) %{_libdir}/libIlmThread-2_1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libIlmThread-2_1.so.11
+%attr(755,root,root) %{_libdir}/libImath-2_1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libImath-2_1.so.11
 
 %files devel
 %defattr(644,root,root,755)
