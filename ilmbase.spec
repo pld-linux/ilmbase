@@ -2,10 +2,11 @@ Summary:	IlmBase - base math and exception libraries from OpenEXR project
 Summary(pl.UTF-8):	IlmBase - podstawowe biblioteki matematyczne i wyjątków z projektu OpenEXR
 Name:		ilmbase
 Version:	2.3.0
-Release:	0.1
+Release:	0.5
 License:	BSD
 Group:		Libraries
-Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/v%{version}/ilmbase-%{version}.tar.gz
+#Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/v%{version}/ilmbase-%{version}.tar.gz
+Source0:	ilmbase-%{version}.tar.gz
 # Source0-md5:	354bf86de3b930ab87ac63619d60c860
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
