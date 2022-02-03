@@ -5,15 +5,16 @@ Version:	2.3.0
 Release:	1
 License:	BSD
 Group:		Libraries
-#Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/v%{version}/ilmbase-%{version}.tar.gz
-Source0:	ilmbase-%{version}.tar.gz
+#Source0Download: https://github.com/AcademySoftwareFoundation/openexr/releases
+Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	354bf86de3b930ab87ac63619d60c860
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
 URL:		http://www.openexr.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
-BuildRequires:	libstdc++-devel
+# C++ 03, 11, 14, 17 possible, but configure defaults to 14
+BuildRequires:	libstdc++-devel >= 6:5
 BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -50,7 +51,7 @@ Summary:	Header files for IlmBase libraries
 Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek IlmBase
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:5
 Conflicts:	OpenEXR-devel < 1.5.0
 
 %description devel
@@ -101,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS
+%doc AUTHORS ChangeLog LICENSE README.md
 %attr(755,root,root) %{_libdir}/libHalf.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libHalf.so.24
 %attr(755,root,root) %{_libdir}/libIex-2_3.so.*.*.*
