@@ -2,7 +2,7 @@ Summary:	IlmBase - base math and exception libraries from OpenEXR project
 Summary(pl.UTF-8):	IlmBase - podstawowe biblioteki matematyczne i wyjątków z projektu OpenEXR
 Name:		ilmbase
 Version:	2.3.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/AcademySoftwareFoundation/openexr/releases
@@ -27,9 +27,6 @@ IlmThread is a thread abstraction library for use with OpenEXR
 and other software packages.  It currently supports pthreads and
 Windows threads.
 
-Imath implements 2D and 3D vectors, 3x3 and 4x4 matrices, quaternions
-and other useful 2D and 3D math functions.
-
 Iex is an exception-handling library.
 
 %description -l pl.UTF-8
@@ -40,9 +37,6 @@ Half to klasa obudowująca 16-bitowy format zmiennoprzecinkowy.
 IlmThread to biblioteka abstrakcji wątków przeznaczona dla OpenEXR i
 innych pakietów oprogramowania. Aktualnie obsługuje standard pthreads
 oraz wątki Windows.
-
-Imath implementuje wektory 2D i 3D, macierze 3x3 i 4x4, kwaterniony i
-inne przydatne funkcje matematyczne 2D i 3D.
 
 Iex to biblioteka obsługi wyjątków.
 
@@ -94,6 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# see Imath package
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libImath* $RPM_BUILD_ROOT%{_includedir}/OpenEXR/Imath*.h
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -111,8 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libIexMath-2_3.so.24
 %attr(755,root,root) %{_libdir}/libIlmThread-2_3.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libIlmThread-2_3.so.24
-%attr(755,root,root) %{_libdir}/libImath-2_3.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libImath-2_3.so.24
 
 %files devel
 %defattr(644,root,root,755)
@@ -120,17 +115,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libIex.so
 %attr(755,root,root) %{_libdir}/libIexMath.so
 %attr(755,root,root) %{_libdir}/libIlmThread.so
-%attr(755,root,root) %{_libdir}/libImath.so
 %{_libdir}/libHalf.la
 %{_libdir}/libIex.la
 %{_libdir}/libIexMath.la
 %{_libdir}/libIlmThread.la
-%{_libdir}/libImath.la
 %dir %{_includedir}/OpenEXR
 %{_includedir}/OpenEXR/Iex*.h
 %{_includedir}/OpenEXR/IlmBaseConfig.h
 %{_includedir}/OpenEXR/IlmThread*.h
-%{_includedir}/OpenEXR/Imath*.h
 %{_includedir}/OpenEXR/half*.h
 %{_pkgconfigdir}/IlmBase.pc
 
@@ -140,4 +132,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libIex.a
 %{_libdir}/libIexMath.a
 %{_libdir}/libIlmThread.a
-%{_libdir}/libImath.a
