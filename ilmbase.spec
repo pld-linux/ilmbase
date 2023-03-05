@@ -10,7 +10,7 @@ Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/
 # Source0-md5:	354bf86de3b930ab87ac63619d60c860
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-sh.patch
-URL:		http://www.openexr.com/
+URL:		https://openexr.com/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
 # C++ 03, 11, 14, 17 possible, but configure defaults to 14
